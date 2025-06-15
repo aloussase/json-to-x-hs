@@ -1,53 +1,62 @@
-cabal-version:      3.0
-name:               json-to-x-hs
-version:            0.1.0.0
+cabal-version:   3.0
+name:            json-to-x-hs
+version:         0.1.0.0
 synopsis:
-    Tool to convert JSON to structures in different programming languages
+  Tool to convert JSON to structures in different programming languages
 
 -- description:
-homepage:           https://github.com/aloussase/json-to-x-hs
-license:            MIT
-license-file:       LICENSE
-author:             Alexander Goussas
-maintainer:         goussasalexander@gmail.com
+homepage:        https://github.com/aloussase/json-to-x-hs
+license:         MIT
+license-file:    LICENSE
+author:          Alexander Goussas
+maintainer:      goussasalexander@gmail.com
+
 -- copyright:
-category:           Text
-build-type:         Simple
-extra-doc-files:    CHANGELOG.md
+category:        Text
+build-type:      Simple
+extra-doc-files: CHANGELOG.md
+
 -- extra-source-files:
 
 common warnings
-    ghc-options: -Wall
+  ghc-options: -Wall
 
 library
-    import:           warnings
-    exposed-modules:  MyLib
-    -- other-modules:
-    -- other-extensions:
-    build-depends:    base ^>=4.17.2.1
-    hs-source-dirs:   lib
-    default-language: Haskell2010
+  import:           warnings
+  exposed-modules:  MyLib
+
+  -- other-modules:
+  -- other-extensions:
+  build-depends:
+    , aeson
+    , base   ^>=4.17.2.1
+    , text
+
+  hs-source-dirs:   lib
+  default-language: Haskell2010
 
 executable json-to-x-hs
-    import:           warnings
-    main-is:          Main.hs
-    -- other-modules:
-    -- other-extensions:
-    build-depends:
-        base ^>=4.17.2.1,
-        json-to-x-hs
+  import:           warnings
+  main-is:          Main.hs
 
-    hs-source-dirs:   app
-    default-language: Haskell2010
+  -- other-modules:
+  -- other-extensions:
+  build-depends:
+    , base          ^>=4.17.2.1
+    , json-to-x-hs
+
+  hs-source-dirs:   app
+  default-language: Haskell2010
 
 test-suite json-to-x-hs-test
-    import:           warnings
-    default-language: Haskell2010
-    -- other-modules:
-    -- other-extensions:
-    type:             exitcode-stdio-1.0
-    hs-source-dirs:   test
-    main-is:          Spec.hs
-    build-depends:
-        base ^>=4.17.2.1,
-        json-to-x-hs
+  import:           warnings
+  default-language: Haskell2010
+
+  -- other-modules:
+  -- other-extensions:
+  type:             exitcode-stdio-1.0
+  hs-source-dirs:   test
+  main-is:          Spec.hs
+  build-depends:
+    , base          ^>=4.17.2.1
+    , json-to-x-hs
